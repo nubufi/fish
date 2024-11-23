@@ -111,11 +111,6 @@ function cleanup
     end
 end
 
-## Starship prompt
-if status --is-interactive
-   source ("/usr/bin/starship" init fish --print-full-init | psub)
-end
-
 ## Useful aliases
 
 # Replace ls with eza
@@ -181,3 +176,13 @@ alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
 if status --is-interactive && type -q fastfetch
    fastfetch --config neofetch.jsonc
 end
+
+set -Ux fish_user_paths /home/nubufi/DiskD/sonar/sonar-scanner/bin/ $fish_user_paths
+
+## Starship prompt
+if status --is-interactive
+   source ("/usr/bin/starship" init fish --print-full-init | psub)
+end
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /home/nubufi/.cache/lm-studio/bin
